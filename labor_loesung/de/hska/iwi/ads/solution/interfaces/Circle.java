@@ -15,16 +15,20 @@ public class Circle extends AbstractCircle {
 
     @Override
     public void scale(double factor) {
-
+        if (factor < 0.0) {return;}
+        double newRadius = this.radius * factor;
+        if (newRadius > 0.0) {
+            this.radius = newRadius;
+        }
     }
 
     @Override
     public double getDimension() {
-        return 0;
+        return this.radius;
     }
 
     @Override
     public double area() {
-        return 0;
+        return Math.PI * this.radius * this.radius;
     }
 }
